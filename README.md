@@ -1,9 +1,11 @@
 My project idea
 ============
 
-Please specificate your project idea for the SI week in this chapter. Be as specific as you can regarding the features you'd like to implement.
+Next week i will make a to do application! 
+My app will contains these functions: List tasks, add new ones and you will able to delete them if i am ready. 
+I will store the list in a file, and if i open the app, load the data from it.
 
 Technology stack
 ============
 
-Please summarize the technology stack you'd love to work with during the implementation.
+I will use JAVA EE, Spring Boot, Maven, and Thymeleaf template engine
