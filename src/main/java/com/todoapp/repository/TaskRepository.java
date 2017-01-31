@@ -1,7 +1,7 @@
-package com.todoapp;
+package com.todoapp.repository;
 
-/**
- * Created by makaimark on 2017.01.31..
- */
-public class TaskRepository {
+import com.todoapp.Task;
+import org.springframework.data.repository.CrudRepository;
+
+public interface TaskRepository extends CrudRepository<Task, Integer> {
 }
