@@ -13,11 +13,6 @@ public class Task {
     public String task;
     public String status;
 
-//    public Task(String task, String status) {
-//        this.task = task;
-//        this.status = status;
-//    }
-
     public Integer getId() {
         return id;
     }

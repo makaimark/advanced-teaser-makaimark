@@ -1,12 +1,13 @@
-package com.todoapp.service;
+package com.todoapp.database.implementation;
 
 import com.todoapp.Task;
+import com.todoapp.database.dao.TaskServiceDao;
 import com.todoapp.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TaskService {
+public class TaskService implements TaskServiceDao{
 
     private TaskRepository taskRepository;
 
@@ -15,14 +16,17 @@ public class TaskService {
         this.taskRepository = taskRepository;
     }
 
+    @Override
     public Iterable<Task> listAllTask() {
         return taskRepository.findAll();
     }
 
+    @Override
     public void addTask(Task task) {
         taskRepository.save(task);
     }
 
+    @Override
     public void deleteTask(Integer id) {
         taskRepository.delete(id);
     }
