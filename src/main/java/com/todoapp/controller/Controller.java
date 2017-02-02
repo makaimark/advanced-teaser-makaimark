@@ -1,5 +1,6 @@
 package com.todoapp.controller;
 
+import com.todoapp.Status;
 import com.todoapp.Task;
 import com.todoapp.database.implementation.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +40,7 @@ public class Controller {
     public ModelAndView addNew(@RequestParam(value = "task") String task) throws IOException {
         Task todo = new Task();
         todo.setTask(task);
-        todo.setStatus("open");
+        todo.setStatus(Status.OPEN);
         taskService.addTask(todo);
         return new ModelAndView(new RedirectView("/list", true));
     }
@@ -47,6 +48,13 @@ public class Controller {
     @RequestMapping("/delete")
     public ModelAndView deleteTask(@RequestParam(value = "id") Integer id) throws IOException {
         taskService.deleteTask(id);
+        return new ModelAndView(new RedirectView("/list", true));
+    }
+
+    @RequestMapping("/editStatus")
+    public ModelAndView editTaskStatus(@RequestParam(value = "status") Status status,
+                                        @RequestParam(value = "id") Integer id) {
+        taskService.editTaskStatus(id, status);
         return new ModelAndView(new RedirectView("/list", true));
     }
 }

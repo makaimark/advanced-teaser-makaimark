@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:option="http://www.w3.org/1999/xhtml">
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <link rel="stylesheet" type="text/css" href="index.css"/>
 </head>
 <body>
@@ -14,12 +15,27 @@
 <div class="table">
     <table>
         <tr th:each="task : ${todos}">
-            <td th:text="${task.task}"></td>
-            <td th:text="${task.status}"></td>
+            <td th:text="${task.getTask()}"></td>
+            <td>
+                <select id="statusSelect">
+                    <option th:each="status: ${T(com.todoapp.Status).values()}"
+                            th:value="${status}" th:text="${status}"
+                            th:attr="selected=${status == task.getStatus()} ? 'selected'">
+                    </option>
+                </select>
+            </td>
+            <!--<td th:text="${task.getStatus()}"></td>-->
             <form action="/delete" method="post">
-                <input hidden="hidden" name="id" th:value="${task.id}"></input>
+                <input hidden="hidden" name="id" th:value="${task.getId()}"/>
                 <td><button type="submit" class="btn btn-primary">Delete task</button></td>
             </form>
+            <!--<form th:action="@{/editStatus(id=${task.getId()},status=$('#statusSelect option:selected').text())}" method="post">-->
+                <!--<input hidden="hidden" name="id" th:value="${task.getId()}"/>-->
+                <!--<td><button type="submit" class="btn btn-primary">Update status</button></td>-->
+            <!--</form>-->
+            <!--<td>-->
+                <!--<a th:href="@{/editStatus/(id=${task.getId()}, status=)}"> Edit </a>-->
+            <!--</td>-->
         </tr>
     </table>
 </div>

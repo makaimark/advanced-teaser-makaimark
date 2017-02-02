@@ -6,7 +6,7 @@ tr, td {
 }
 
 table {
-    width: 400px;
+    width: 500px;
 }
 
 .table {
@@ -15,7 +15,7 @@ table {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: 500px;
 }
 
 .title {

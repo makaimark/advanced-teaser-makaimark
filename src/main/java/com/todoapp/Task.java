@@ -8,10 +8,10 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Integer id;
+    private Integer id;
 
-    public String task;
-    public String status;
+    private String task;
+    private Status status;
 
     public Integer getId() {
         return id;
@@ -21,7 +21,7 @@ public class Task {
         this.id = id;
     }
 
-    String getTask() {
+    public String getTask() {
         return task;
     }
 
@@ -29,11 +29,11 @@ public class Task {
         this.task = task;
     }
 
-    String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 }

@@ -1,5 +1,6 @@
 package com.todoapp.database.implementation;
 
+import com.todoapp.Status;
 import com.todoapp.Task;
 import com.todoapp.database.dao.TaskServiceDao;
 import com.todoapp.repository.TaskRepository;
@@ -29,5 +30,12 @@ public class TaskService implements TaskServiceDao{
     @Override
     public void deleteTask(Integer id) {
         taskRepository.delete(id);
+    }
+
+    @Override
+    public void editTaskStatus(Integer id, Status status) {
+        Task task = taskRepository.findOne(id);
+        task.setStatus(status);
+        taskRepository.save(task);
     }
 }
