@@ -9,3 +9,7 @@ Technology stack
 ============
 
 I will use JAVA EE, Spring Boot, Maven, and Thymeleaf template engine
+
+My project finally:
+
+I store the datas in a database, using Hibernate, and it is possible to change the statuses
