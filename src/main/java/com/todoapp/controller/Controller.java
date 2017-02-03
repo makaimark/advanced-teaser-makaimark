@@ -52,8 +52,10 @@ public class Controller {
     }
 
     @RequestMapping("/editStatus")
-    public ModelAndView editTaskStatus(@RequestParam(value = "status") Status status,
-                                        @RequestParam(value = "id") Integer id) {
+    public ModelAndView editTaskStatus(@RequestParam(value = "id") Integer id,
+                                       @RequestParam(value = "status") Status status) {
+        System.out.println(status);
+        System.out.println(id);
         taskService.editTaskStatus(id, status);
         return new ModelAndView(new RedirectView("/list", true));
     }
